@@ -7,7 +7,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden selection:bg-[#d4af37]/30">
       
       {/* HERO SECTION - Adicionado espaçamento superior (pt-16 lg:pt-24) para afastar do Header */}
-      <section id="sobre" className="relative min-h-[calc(100vh-80px)] flex items-center justify-center pt-16 lg:pt-10 pb-12 md:py-0">
+      <section id="sobre" className="relative min-h-[calc(100vh-80px)] flex items-center justify-center pt-16 lg:pt-7 pb-12 md:py-0">
         
         {/* Texto Gigante em Outline ao Fundo */}
         <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none z-0 overflow-hidden">
