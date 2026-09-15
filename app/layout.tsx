@@ -17,8 +17,12 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className="bg-[#0a0a0a] text-white antialiased">
         {/* O Header fica aqui para aparecer em todas as páginas */}
-        <Header /> 
-        
+        <Header />
+
+        {/* [FIX] Este é o único elemento <main> de toda a aplicação (landmark de
+            acessibilidade). Páginas individuais, como app/page.tsx, não devem renderizar
+            seu próprio <main> — antes a Home tinha um <main> aninhado dentro deste,
+            o que é HTML inválido e confunde leitores de tela. */}
         <main>
           {children}
         </main>

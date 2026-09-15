@@ -5,6 +5,11 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+// [FIX] Todas as ocorrências de #d4af37 / #f3e5ab / #b8942e neste arquivo foram trocadas
+// pelos tokens text-gold / text-gold-light / bg-gold-dark etc, definidos em
+// app/globals.css. Sombras em rgba(212,175,55,...) foram mantidas como estão: são
+// box-shadow/drop-shadow com valores arbitrários e o Tailwind v4 não os resolve a partir
+// de um token de cor nomeado.
 export default function Header() {
   const [activeSection, setActiveSection] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -68,7 +73,7 @@ export default function Header() {
             priority
           />
           <div className="hidden sm:flex flex-col">
-            <span className="text-xs tracking-[0.2em] text-[#d4af37] font-medium uppercase transition-colors duration-300 group-hover:text-[#f3e5ab]">
+            <span className="text-xs tracking-[0.2em] text-gold font-medium uppercase transition-colors duration-300 group-hover:text-gold-light">
               Aleksander Assis
             </span>
             <span className="text-[10px] tracking-[0.1em] text-gray-400 uppercase">
@@ -88,14 +93,14 @@ export default function Header() {
                 onClick={() => handleLinkClick(item.href)}
                 className={`relative py-3 text-sm font-medium tracking-wide transition-all duration-300 ease-out group outline-none
                   ${isActive 
-                    ? 'text-[#f3e5ab] font-semibold scale-105 drop-shadow-[0_0_10px_rgba(212,175,55,0.3)]' 
-                    : 'text-gray-400 hover:text-[#d4af37] hover:-translate-y-[2px]'
+                    ? 'text-gold-light font-semibold scale-105 drop-shadow-[0_0_10px_rgba(212,175,55,0.3)]'
+                    : 'text-gray-400 hover:text-gold hover:-translate-y-[2px]'
                   }
                 `}
               >
                 {/* Indicador ATIVO (Losango Minimalista acima do texto) */}
                 {isActive && (
-                  <span className="absolute -top-1 left-1/2 -translate-x-1/2 text-[8px] text-[#d4af37] animate-pulse">
+                  <span className="absolute -top-1 left-1/2 -translate-x-1/2 text-[8px] text-gold animate-pulse">
                     ◆
                   </span>
                 )}
@@ -104,7 +109,7 @@ export default function Header() {
 
                 {/* Linha de HOVER (Expansão a partir do centro) */}
                 <span 
-                  className={`absolute bottom-0 left-1/2 h-[1.5px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent transition-all duration-300 ease-out -translate-x-1/2
+                  className={`absolute bottom-0 left-1/2 h-[1.5px] bg-gradient-to-r from-transparent via-gold to-transparent transition-all duration-300 ease-out -translate-x-1/2
                     ${isActive 
                       ? 'w-1/2 opacity-70' 
                       : 'w-0 group-hover:w-full group-hover:opacity-100' 
@@ -120,7 +125,7 @@ export default function Header() {
         <div className="hidden md:block">
           <Link 
             href="#contato" 
-            className="relative inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-black bg-[#d4af37] overflow-hidden transition-all duration-300 hover:bg-[#b8942e] hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(212,175,55,0.1)] hover:shadow-[0_0_25px_rgba(212,175,55,0.3)] group"
+            className="relative inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-black bg-gold overflow-hidden transition-all duration-300 hover:bg-gold-dark hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(212,175,55,0.1)] hover:shadow-[0_0_25px_rgba(212,175,55,0.3)] group"
           >
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
             <span className="relative z-10">Vamos Conversar</span>
@@ -130,21 +135,21 @@ export default function Header() {
         {/* Botão Hambúrguer (Mobile/Tablet - Visível abaixo de MD) */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex flex-col justify-center items-center md:hidden w-10 h-10 gap-[6px] z-50 rounded-lg border border-[#2a2a2a]/60 bg-[#0e0e0e]/80 hover:border-[#d4af37]/50 active:scale-95 transition-all duration-200"
+          className="flex flex-col justify-center items-center md:hidden w-10 h-10 gap-[6px] z-50 rounded-lg border border-[#2a2a2a]/60 bg-[#0e0e0e]/80 hover:border-gold/50 active:scale-95 transition-all duration-200"
           aria-label="Abrir menu de navegação"
         >
           <span 
-            className={`h-[2px] w-6 bg-[#d4af37] rounded-full transition-all duration-300 ease-out 
+            className={`h-[2px] w-6 bg-gold rounded-full transition-all duration-300 ease-out
               ${isMenuOpen ? 'rotate-45 translate-y-[8px]' : ''}
             `}
           />
           <span 
-            className={`h-[2px] w-6 bg-[#d4af37] rounded-full transition-all duration-300 ease-out 
+            className={`h-[2px] w-6 bg-gold rounded-full transition-all duration-300 ease-out
               ${isMenuOpen ? 'opacity-0 scale-0' : 'opacity-100'}
             `}
           />
           <span 
-            className={`h-[2px] w-6 bg-[#d4af37] rounded-full transition-all duration-300 ease-out 
+            className={`h-[2px] w-6 bg-gold rounded-full transition-all duration-300 ease-out
               ${isMenuOpen ? '-rotate-45 -translate-y-[8px]' : ''}
             `}
           />
@@ -171,14 +176,14 @@ export default function Header() {
                 onClick={() => handleLinkClick(item.href)}
                 className={`relative py-2 text-xl font-medium tracking-widest transition-all duration-300 w-full text-center
                   ${isActive 
-                    ? 'text-[#f3e5ab] scale-105 font-bold drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]' 
-                    : 'text-gray-400 hover:text-[#d4af37]'
+                    ? 'text-gold-light scale-105 font-bold drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]'
+                    : 'text-gray-400 hover:text-gold'
                   }
                 `}
               >
                 {/* Losango sutil ao lado do item ativo no mobile */}
                 {isActive && (
-                  <span className="inline-block mr-2 text-sm text-[#d4af37] animate-pulse">
+                  <span className="inline-block mr-2 text-sm text-gold animate-pulse">
                     ◆
                   </span>
                 )}
@@ -192,7 +197,7 @@ export default function Header() {
             <Link 
               href="#contato"
               onClick={() => setIsMenuOpen(false)}
-              className="relative flex items-center justify-center w-full py-3.5 rounded-full text-sm font-bold uppercase tracking-wider text-black bg-[#d4af37] overflow-hidden shadow-[0_0_20px_rgba(212,175,55,0.2)]"
+              className="relative flex items-center justify-center w-full py-3.5 rounded-full text-sm font-bold uppercase tracking-wider text-black bg-gold overflow-hidden shadow-[0_0_20px_rgba(212,175,55,0.2)]"
             >
               <span className="relative z-10">Vamos Conversar</span>
             </Link>
