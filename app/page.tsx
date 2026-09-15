@@ -4,8 +4,13 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden selection:bg-[#d4af37]/30">
-      
+    /* [FIX] Era <main>, mas app/layout.tsx já envolve toda a aplicação em um único <main>.
+       Dois <main> aninhados é HTML inválido e cria dois landmarks "main" para leitores de
+       tela. Trocado para <div> mantendo exatamente as mesmas classes/estilos.
+       Também: bg-[#0a0a0a] e bg-[#d4af37] viraram bg-background/bg-gold (tokens definidos
+       em app/globals.css) no lugar dos valores hexadecimais soltos. */
+    <div className="min-h-screen bg-background text-white overflow-x-hidden selection:bg-gold/30">
+
       {/* HERO SECTION - Adicionado espaçamento superior (pt-16 lg:pt-24) para afastar do Header */}
       <section id="sobre" className="relative min-h-[calc(100vh-80px)] flex items-center justify-center pt-16 lg:pt-7 pb-12 md:py-0">
         
@@ -21,15 +26,15 @@ export default function Home() {
           {/* COLUNA ESQUERDA (6 colunas): Texto e Ações */}
           <div className="lg:col-span-6 flex flex-col justify-center space-y-6 text-center lg:text-left order-2 lg:order-1">
             <div className="inline-flex items-center justify-center lg:justify-start gap-2">
-              <span className="w-8 h-[1px] bg-[#d4af37]"></span>
-              <span className="text-[#d4af37] text-xs font-semibold tracking-[0.2em] uppercase">
+              <span className="w-8 h-[1px] bg-gold"></span>
+              <span className="text-gold text-xs font-semibold tracking-[0.2em] uppercase">
                 Desenvolvedor Web & PO
               </span>
             </div>
 
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight">
               Design que inspira.<br />
-              <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f3e5ab] to-[#b8942e]">
+              <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-light to-gold-dark">
                 Código que performa.
               </span>
             </h2>
@@ -41,13 +46,13 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
               <Link
                 href="#projetos"
-                className="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-black bg-[#d4af37] hover:bg-[#b8942e] transition-all duration-300 text-center shadow-[0_0_15px_rgba(212,175,55,0.1)] hover:shadow-[0_0_25px_rgba(212,175,55,0.3)]"
+                className="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-black bg-gold hover:bg-gold-dark transition-all duration-300 text-center shadow-[0_0_15px_rgba(212,175,55,0.1)] hover:shadow-[0_0_25px_rgba(212,175,55,0.3)]"
               >
                 Ver Projetos
               </Link>
               <Link
                 href="#trajetoria"
-                className="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-white border border-[#2a2a2a] hover:border-[#d4af37]/50 hover:bg-white/5 transition-all duration-300 text-center"
+                className="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-white border border-[#2a2a2a] hover:border-gold/50 hover:bg-white/5 transition-all duration-300 text-center"
               >
                 Minha Trajetória
               </Link>
@@ -71,7 +76,7 @@ export default function Home() {
 
               <div className="last:border-none last:pr-0">
                 <p className="text-[9px] tracking-[0.2em] text-gray-500 uppercase">Status</p>
-                <p className="text-xs font-medium text-[#d4af37] flex items-center justify-center lg:justify-end gap-1.5">
+                <p className="text-xs font-medium text-gold flex items-center justify-center lg:justify-end gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
                   Disponível para Estágio
                 </p>
@@ -82,7 +87,7 @@ export default function Home() {
             <div className="relative w-full max-w-[280px] sm:max-w-[340px] md:max-w-[380px] lg:max-w-[440px] aspect-[4/5] z-10 group">
               
               {/* Glow dourado de fundo */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#d4af37]/5 to-transparent rounded-full blur-3xl opacity-55 transition-opacity duration-500 scale-90 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gold/5 to-transparent rounded-full blur-3xl opacity-55 transition-opacity duration-500 scale-90 pointer-events-none" />
               
               {/* Suavização de degradê refinada para sumir com perfeição no preto absolute */}
               <div 
@@ -106,6 +111,26 @@ export default function Home() {
 
         </div>
       </section>
-    </main>
+
+      {/* [NOVO] Seções placeholder abaixo: os links do menu (Header.tsx) já apontam para
+          #trajetoria, #projetos, #habilidades e #contato. Sem essas âncoras existirem na
+          página, o clique no menu não levava a lugar nenhum. Conteúdo real de cada uma
+          entra conforme o roadmap em docs/ROADMAP.md — por ora só reservam o espaço. */}
+      <section id="trajetoria" className="min-h-screen flex items-center justify-center px-6 border-t border-[#2a2a2a]/40">
+        <p className="text-gray-500 text-xs uppercase tracking-[0.3em]">Trajetória — em construção</p>
+      </section>
+
+      <section id="projetos" className="min-h-screen flex items-center justify-center px-6 border-t border-[#2a2a2a]/40">
+        <p className="text-gray-500 text-xs uppercase tracking-[0.3em]">Projetos — em construção</p>
+      </section>
+
+      <section id="habilidades" className="min-h-screen flex items-center justify-center px-6 border-t border-[#2a2a2a]/40">
+        <p className="text-gray-500 text-xs uppercase tracking-[0.3em]">Habilidades — em construção</p>
+      </section>
+
+      <section id="contato" className="min-h-screen flex items-center justify-center px-6 border-t border-[#2a2a2a]/40">
+        <p className="text-gray-500 text-xs uppercase tracking-[0.3em]">Contato — em construção</p>
+      </section>
+    </div>
   );
 }
