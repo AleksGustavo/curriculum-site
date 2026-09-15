@@ -15,11 +15,14 @@ export type TrajectoryItem = {
 
 export const trajectoryItems: TrajectoryItem[] = [
   {
-    period: '2024 — Atual',
-    title: 'Formação em Desenvolvimento de Software Multiplataforma',
+    // [FIX] Curso e ano corrigidos: era descrito como "Formação em Desenvolvimento de
+    // Software Multiplataforma" com período "2024 — Atual", mas o curso correto é o
+    // Técnico em Desenvolvimento de Sistemas, com conclusão prevista para 2027.
+    period: 'Conclusão prevista em 2027',
+    title: 'Curso Técnico em Desenvolvimento de Sistemas',
     description:
-      'Base em engenharia de software, banco de dados, APIs e arquitetura de aplicações, aplicada continuamente em projetos reais ao longo do curso na Fatec Araras.',
-    tags: ['Engenharia de Software', 'Banco de Dados', 'APIs', 'Arquitetura'],
+      'Formação técnica com foco em programação, banco de dados, APIs e desenvolvimento de sistemas, aplicada continuamente em projetos reais ao longo do curso na Fatec Araras.',
+    tags: ['Programação', 'Banco de Dados', 'APIs', 'Desenvolvimento de Sistemas'],
   },
   {
     period: '2025',
