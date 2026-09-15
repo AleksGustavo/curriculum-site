@@ -37,15 +37,22 @@ export default function Header() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // [FIX] "hash" (só a âncora) fica separado de "href" (caminho completo, com "/" na
+  // frente). Motivo: agora existe a rota /trajetoria além da home — um link "#sobre"
+  // sem a barra, quando clicado a partir de /trajetoria, tentaria rolar até um elemento
+  // #sobre naquela própria página (que não existe) em vez de voltar para a home. Com
+  // "/#sobre" o Next navega para a home e desce até a seção corretamente, de qualquer
+  // página. O "hash" continua existindo à parte porque é isso que comparamos com
+  // window.location.hash para destacar o item ativo no menu.
   const navItems = [
-    { name: 'Sobre Mim', href: '#sobre' },
-    { name: 'Trajetória', href: '#trajetoria' },
-    { name: 'Projetos', href: '#projetos' },
-    { name: 'Habilidades', href: '#habilidades' },
+    { name: 'Sobre Mim', hash: '#sobre' },
+    { name: 'Trajetória', hash: '#trajetoria' },
+    { name: 'Projetos', hash: '#projetos' },
+    { name: 'Habilidades', hash: '#habilidades' },
   ];
 
-  const handleLinkClick = (href: string) => {
-    setActiveSection(href);
+  const handleLinkClick = (hash: string) => {
+    setActiveSection(hash);
     setIsMenuOpen(false);
   };
 
@@ -85,12 +92,12 @@ export default function Header() {
         {/* Navegação Desktop e Tablet (MD para cima) */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => {
-            const isActive = activeSection === item.href;
+            const isActive = activeSection === item.hash;
             return (
-              <Link 
-                key={item.href}
-                href={item.href}
-                onClick={() => handleLinkClick(item.href)}
+              <Link
+                key={item.hash}
+                href={`/${item.hash}`}
+                onClick={() => handleLinkClick(item.hash)}
                 className={`relative py-3 text-sm font-medium tracking-wide transition-all duration-300 ease-out group outline-none
                   ${isActive 
                     ? 'text-gold-light font-semibold scale-105 drop-shadow-[0_0_10px_rgba(212,175,55,0.3)]'
@@ -123,8 +130,8 @@ export default function Header() {
 
         {/* Botão de Contato / Call to Action (Visível em Desktop e Tablet) */}
         <div className="hidden md:block">
-          <Link 
-            href="#contato" 
+          <Link
+            href="/#contato"
             className="relative inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-black bg-gold overflow-hidden transition-all duration-300 hover:bg-gold-dark hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(212,175,55,0.1)] hover:shadow-[0_0_25px_rgba(212,175,55,0.3)] group"
           >
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
@@ -168,12 +175,12 @@ export default function Header() {
       >
         <nav className="flex flex-col items-center gap-8 w-full px-10">
           {navItems.map((item) => {
-            const isActive = activeSection === item.href;
+            const isActive = activeSection === item.hash;
             return (
-              <Link 
-                key={item.href}
-                href={item.href}
-                onClick={() => handleLinkClick(item.href)}
+              <Link
+                key={item.hash}
+                href={`/${item.hash}`}
+                onClick={() => handleLinkClick(item.hash)}
                 className={`relative py-2 text-xl font-medium tracking-widest transition-all duration-300 w-full text-center
                   ${isActive 
                     ? 'text-gold-light scale-105 font-bold drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]'
@@ -194,8 +201,8 @@ export default function Header() {
 
           {/* Botão de Contato dentro do Menu Mobile */}
           <div className="w-full max-w-xs mt-6 pt-6 border-t border-[#2a2a2a]/40">
-            <Link 
-              href="#contato"
+            <Link
+              href="/#contato"
               onClick={() => setIsMenuOpen(false)}
               className="relative flex items-center justify-center w-full py-3.5 rounded-full text-sm font-bold uppercase tracking-wider text-black bg-gold overflow-hidden shadow-[0_0_20px_rgba(212,175,55,0.2)]"
             >
