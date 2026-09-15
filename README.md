@@ -22,19 +22,30 @@ Além de servir como meu cartão de visitas para recrutadores e parceiros de tec
 
 O projeto foi construído utilizando o ecossistema mais moderno de desenvolvimento web front-end:
 
-*   **[Next.js](https://nextjs.org/) (v15+)** - Framework React voltado para produção, utilizando o novo padrão **App Router** para roteamento e renderização otimizada.
-*   **[React.js](https://react.dev/)** - Biblioteca base para construção de interfaces modulares e baseadas em componentes.
+*   **[Next.js](https://nextjs.org/) 16** - Framework React voltado para produção, utilizando o padrão **App Router** para roteamento e renderização otimizada.
+*   **[React.js](https://react.dev/) 19** - Biblioteca base para construção de interfaces modulares e baseadas em componentes.
 *   **[TypeScript](https://www.typescriptlang.org/)** - Adição de tipagem estática para garantir robustez, escalabilidade e prevenção de erros em tempo de desenvolvimento.
-*   **[Tailwind CSS](https://tailwindcss.com/)** - Framework CSS utilitário para estilização rápida, responsiva e focada em performance.
+*   **[Tailwind CSS](https://tailwindcss.com/) v4** - Framework CSS utilitário para estilização rápida, responsiva e focada em performance.
 *   **[Geist Font](https://vercel.com/font)** - Família de fontes otimizada pela Vercel, proporcionando excelente legibilidade e design minimalista.
 
 ---
 
-## 👤 Informações do Projeto
+## 📁 Estrutura do Projeto
 
-*   **Responsável:** Aleksander Gustavo Assis  
-*   **Data de Criação:** Julho de 2026  
-*   **Propósito:** Portfólio profissional, currículo interativo e laboratório prático de boas práticas de engenharia de software (Git/GitHub).
+```
+app/
+├── components/      # Componentes reutilizáveis (ex: Header.tsx)
+├── globals.css      # Estilos globais e tokens de tema do Tailwind
+├── layout.tsx       # Layout raiz (envolve todas as páginas, contém o único <main>)
+└── page.tsx         # Página inicial — hoje concentra todas as seções do currículo
+public/
+└── images/          # Foto de perfil, logo e demais imagens estáticas
+docs/
+├── ESTRUTURA.md      # Documentação básica de como o projeto é organizado
+└── ROADMAP.md        # Ordem sugerida de desenvolvimento das próximas seções
+```
+
+Para detalhes de como as seções, âncoras de navegação e cores do tema se conectam, veja [docs/ESTRUTURA.md](docs/ESTRUTURA.md).
 
 ---
 
@@ -70,12 +81,27 @@ Certifique-se de ter o [Node.js](https://nodejs.org/) instalado em sua máquina.
 
 ---
 
+## 🗺️ Roadmap
+
+O andamento das seções do currículo (Trajetória, Projetos, Habilidades, Contato) e das melhorias técnicas planejadas está documentado em [docs/ROADMAP.md](docs/ROADMAP.md).
+
+---
+
 ## 🚀 Práticas de Engenharia Aplicadas (Git Flow)
 
 Para garantir um padrão de nível profissional neste repositório, o desenvolvimento segue regras rígidas de versionamento:
 
 *   **`main`**: Linha de produção estável. Nenhum commit é feito diretamente aqui.
-*   **`feature/...`**: Ramificações de novas funcionalidades criadas para isolar o desenvolvimento de cada seção do currículo.
-*   **Pull Requests (PRs)**: Toda alteração precisa passar por uma abertura de Pull Request formal com descrição detalhada do que foi alterado antes de ser integrada à branch principal.
-README.md
-Exibindo README.md.
+*   **`feature/...`**: Ramificações de novas funcionalidades, criadas para isolar o desenvolvimento de cada seção do currículo.
+*   **`fix/...`**: Ramificações de correções de bugs ou de pontos técnicos identificados no código existente.
+*   **`docs/...`**: Ramificações que alteram apenas documentação (README, `docs/`), sem tocar em código de produção.
+*   **Pull Requests (PRs)**: Toda alteração precisa passar por uma abertura de Pull Request formal com descrição detalhada do que foi alterado antes de ser integrada à branch principal. Nenhum PR é mesclado sem revisão.
+*   **Comentários de rastreio**: mudanças de código feitas com apoio de IA incluem comentários no próprio código explicando o que foi alterado e por quê, para que a revisão no GitHub (diff do PR) mostre o raciocínio da mudança.
+
+---
+
+## 👤 Informações do Projeto
+
+*   **Responsável:** Aleksander Gustavo Assis  
+*   **Data de Criação:** Julho de 2026  
+*   **Propósito:** Portfólio profissional, currículo interativo e laboratório prático de boas práticas de engenharia de software (Git/GitHub).
