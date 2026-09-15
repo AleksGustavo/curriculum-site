@@ -6,6 +6,11 @@ export type TrajectoryItem = {
   title: string;
   description: string;
   tags: string[];
+  // Caminho para o logotipo do projeto/instituição (ex: "/images/trajectory/constrular.png").
+  // Opcional de propósito: nem todo marco tem um logotipo (ex: o item de fechamento
+  // "Desenvolvimento, Produto e Qualidade" é um resumo, não um produto). Quando ausente,
+  // TimelineItem.tsx mostra a inicial do título como avatar substituto.
+  logo?: string;
 };
 
 export const trajectoryItems: TrajectoryItem[] = [
