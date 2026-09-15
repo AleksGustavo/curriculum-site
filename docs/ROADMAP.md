@@ -8,18 +8,18 @@
 
 Ordem sugerida para continuar o desenvolvimento do currículo. Cada fase pode (e deve) virar uma ou mais branches `feature/...` separadas, com seu próprio PR — não é necessário concluir uma fase inteira antes de abrir um PR.
 
-## Fase 1 — Fundação ✅ (em andamento)
+## Fase 1 — Fundação ✅ (concluída)
 
 - [x] Header com navegação e menu mobile
 - [x] Seção "Sobre Mim" (Hero)
 - [x] Correções estruturais: `<main>` único, tokens de cor, placeholders de navegação
-- [ ] Revisão dos PRs de correção e documentação iniciais
+- [x] Revisão dos PRs de correção e documentação iniciais
 
 ## Fase 2 — Conteúdo principal do currículo
 
 Substituir os placeholders criados na Fase 1 por conteúdo real, uma seção por vez/PR:
 
-- [ ] **`#trajetoria`**: linha do tempo de formação acadêmica (FATEC Araras) e experiências profissionais.
+- [x] **`#trajetoria`**: timeline profissional (formação + ConstruLar, PetConnect, Lucratix, projeto para cliente e momento atual). Componente em `app/components/trajectory/`.
 - [ ] **`#projetos`**: grade de cards com os principais projetos (nome, descrição curta, tecnologias, link para o repositório/demo).
 - [ ] **`#habilidades`**: lista/grade de tecnologias e competências (pode reaproveitar os ícones de badge já usados no README).
 

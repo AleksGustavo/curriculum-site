@@ -20,6 +20,7 @@ Stack: Next.js (App Router) + React + TypeScript + Tailwind CSS v4. Hoje o site 
 | `app/layout.tsx` | Layout raiz. Define `<html>`, metadata (título/descrição da aba) e renderiza o `Header` + o único `<main>` da aplicação. |
 | `app/page.tsx` | Página inicial. Contém todas as seções do currículo (`#sobre`, `#trajetoria`, `#projetos`, `#habilidades`, `#contato`), uma após a outra. |
 | `app/components/Header.tsx` | Menu fixo no topo, com navegação por âncora e versão mobile (menu hambúrguer). Lista de itens do menu vive no array `navItems` dentro do componente. |
+| `app/components/trajectory/` | Seção "Trajetória" (`Trajectory.tsx` monta a timeline, `TimelineItem.tsx` renderiza cada marco, `data.ts` guarda o conteúdo separado da apresentação). |
 | `app/globals.css` | Estilos globais e os tokens de cor do tema (ver abaixo). |
 | `public/images/` | Imagens estáticas (foto de perfil, logo). |
 
@@ -44,7 +45,7 @@ Cada item do menu em `Header.tsx` (`navItems`) aponta para um `id` de `<section>
 | Menu | Âncora | Status |
 |---|---|---|
 | Sobre Mim | `#sobre` | Implementado (Hero) |
-| Trajetória | `#trajetoria` | Placeholder — ver [ROADMAP.md](./ROADMAP.md) |
+| Trajetória | `#trajetoria` | Implementado (timeline profissional) |
 | Projetos | `#projetos` | Placeholder — ver [ROADMAP.md](./ROADMAP.md) |
 | Habilidades | `#habilidades` | Placeholder — ver [ROADMAP.md](./ROADMAP.md) |
 | Contato (CTA) | `#contato` | Placeholder — ver [ROADMAP.md](./ROADMAP.md) |
