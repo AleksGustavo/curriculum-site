@@ -1,6 +1,7 @@
 // src/app/page.tsx
 import Image from 'next/image';
 import Link from 'next/link';
+import Trajectory from './components/trajectory/Trajectory';
 
 export default function Home() {
   return (
@@ -112,13 +113,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* [NOVO] Seções placeholder abaixo: os links do menu (Header.tsx) já apontam para
-          #trajetoria, #projetos, #habilidades e #contato. Sem essas âncoras existirem na
-          página, o clique no menu não levava a lugar nenhum. Conteúdo real de cada uma
-          entra conforme o roadmap em docs/ROADMAP.md — por ora só reservam o espaço. */}
-      <section id="trajetoria" className="min-h-screen flex items-center justify-center px-6 border-t border-[#2a2a2a]/40">
-        <p className="text-gray-500 text-xs uppercase tracking-[0.3em]">Trajetória — em construção</p>
-      </section>
+      {/* [FASE 2.1] Placeholder da Trajetória substituído pela seção real (ver
+          app/components/trajectory/). Os demais placeholders abaixo (#projetos,
+          #habilidades, #contato) continuam de propósito — pertencem às próximas fases
+          do roadmap (docs/ROADMAP.md) e não fazem parte do escopo desta branch. */}
+      <Trajectory />
 
       <section id="projetos" className="min-h-screen flex items-center justify-center px-6 border-t border-[#2a2a2a]/40">
         <p className="text-gray-500 text-xs uppercase tracking-[0.3em]">Projetos — em construção</p>
